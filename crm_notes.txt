@@ -1,0 +1,8 @@
+CONTACT
+- first name
+- last name
+- email
+  - check for correct format email
+- notes
+- phone number
+- address
