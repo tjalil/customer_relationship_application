@@ -63,8 +63,8 @@ class Runner
         done = true
       elsif input == 1
         add_contact
-      # elsif input == 2
-      #   display_contact
+      elsif input == 2
+        display_contact
       # elsif input == 3
       #   remove_contact
       # elsif input == 4

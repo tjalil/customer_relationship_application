@@ -16,11 +16,17 @@ class Rolodex
   def display_all_contacts
     @contacts.each do |contact|
       puts contact
-      puts "    -----   "
+      puts "    -----    "
     end
   end
 
-  def display_contact(user_id)
-    
+  def display_contact(id)
+    display = nil
+    @contacts.each do |contact|
+      if contact.id == id
+        display = contact
+      end
+    end
+    puts display
   end
 end

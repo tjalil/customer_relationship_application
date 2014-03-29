@@ -1,11 +1,18 @@
++ means complete
+- means incomplete
+
 CONTACT
-- first name
-- last name
-- email
-  - check for correct format email
-- notes
++ first name
++ last name
++ email
+  - check for correct email format
++ notes
 - phone number
 - address
 
 ADDING NEW USER
 - check if user already exists
+
+DISPLAY CONTACT USING ID
+- if id does not exist i.e. id > length of the array OR id <length of the array, display message saying "There is no user with the given ID"
+- can also give user option to look for id again if fails once
