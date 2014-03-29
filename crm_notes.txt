@@ -6,3 +6,6 @@ CONTACT
 - notes
 - phone number
 - address
+
+ADDING NEW USER
+- check if user already exists

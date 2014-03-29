@@ -13,7 +13,7 @@ class Runner
     puts "3. Remove a contact"
     puts "4. Edit a contact"
     puts "5. Display all contacts"
-    puts "6. Display a contact's certain attribute"
+    #puts "6. Display a contact's certain attribute"
     puts "0. Exit"
   end
 
@@ -34,6 +34,9 @@ class Runner
   end
 
   def display_contact
+    puts "Enter userID to display user information"
+    user_id = gets.chomp.to_i
+    @rolodex.display_contact(user_id)
   end
 
   def remove_contact
@@ -43,10 +46,12 @@ class Runner
   end
 
   def display_all_contacts
+    puts "----- ALL CONTACTS -----"
+    @rolodex.display_all_contacts
   end
 
-  def display_attribute
-  end
+  # def display_attribute
+  # end
 
   def run_program
     done = false
@@ -64,8 +69,8 @@ class Runner
       #   remove_contact
       # elsif input == 4
       #   edit_contact
-      # elsif input == 5
-      #   display_all_contacts
+      elsif input == 5
+        display_all_contacts
       # elsif input == 6
       #   display_attribute
       end

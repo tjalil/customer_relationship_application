@@ -12,4 +12,15 @@ class Rolodex
 
     @contacts << contact
   end
+
+  def display_all_contacts
+    @contacts.each do |contact|
+      puts contact
+      puts "    -----   "
+    end
+  end
+
+  def display_contact(user_id)
+    
+  end
 end
