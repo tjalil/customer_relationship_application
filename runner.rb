@@ -11,7 +11,7 @@ class Runner
     puts "1. Add a contact"
     puts "2. Display a contact"
     puts "3. Remove a contact"
-    #puts "4. Edit a contact"
+    puts "4. Edit a contact"
     puts "5. Display all contacts"
     puts "6. Display all contacts by First Name, Last Name, Email or Notes"
     puts "0. Exit"
@@ -56,6 +56,16 @@ class Runner
   end
 
   def edit_contact
+    puts "Enter userID to access the user being edited"
+    id = gets.chomp.to_i
+
+    puts "What attribute would you like to edit for #{id}?\n'firstname' for first name\n'lastname' for last name\n'email' for email\n'notes' for notes"
+    att_input = gets.chomp.downcase
+
+    puts "What is the new value you would like to give this attribute?"
+    new_att_input = gets.chomp
+    @rolodex.edit_contact(id, att_input, new_att_input)
+    #@rolodex.display_contact(id)
   end
 
   def display_all_contacts
@@ -64,7 +74,7 @@ class Runner
   end
 
   def display_attribute
-    puts "Type the attribute you want to display\n'firstname' for first name, 'lastname' for last name, 'email' for email or 'notes' for notes"
+    puts "Type the attribute you want to display\n'firstname' for first name\n'lastname' for last name\n'email' for email\n'notes' for notes"
     att_input = gets.chomp.downcase
     @rolodex.display_attribute(att_input)
   end
@@ -83,8 +93,8 @@ class Runner
         display_contact
       elsif input == 3
         remove_contact
-      # elsif input == 4
-      #   edit_contact
+      elsif input == 4
+        edit_contact
       elsif input == 5
         display_all_contacts
       elsif input == 6
