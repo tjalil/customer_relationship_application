@@ -1,5 +1,5 @@
-require './rolodex.rb'
-require './contact.rb'
+require './rolodex'
+require './contact'
 
 class Runner
   def initialize
