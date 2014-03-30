@@ -44,13 +44,17 @@ class Rolodex
     att_contacts = []
     @contacts.each do |contact|
       if att_input == 'firstname'
-        att_contacts << contact.first_name
+        att_contacts << "userID: #{contact.id}"
+        att_contacts << "First Name: #{contact.first_name.capitalize}\n    -----    "
       elsif att_input == 'lastname'
-        att_contacts << contact.last_name
+        att_contacts << "userID: #{contact.id}"
+        att_contacts << "Last Name: #{contact.last_name.capitalize}\n    -----    "
       elsif att_input == 'email'
-        att_contacts << contact.email
+        att_contacts << "userID: #{contact.id}"
+        att_contacts << "Email: #{contact.email}\n    -----    "
       elsif att_input == 'notes'
-        att_contacts << contact.notes
+        att_contacts << "userID: #{contact.id}"
+        att_contacts << "Notes: #{contact.notes.capitalize}\n    -----    "
       end
     end
     puts att_contacts
@@ -60,13 +64,29 @@ class Rolodex
     @contacts.each do |contact|
       if contact.id == id
         if att_input == 'firstname'
-          contact.first_name = new_att_input
+          if new_att_input == 'No'
+            return ""
+          else
+            contact.first_name = new_att_input
+          end
         elsif att_input == 'lastname'
-          contact.last_name = new_att_input
+          if new_att_input == 'No'
+            return ""
+          else
+            contact.last_name = new_att_input
+          end
         elsif att_input == 'email'
-          contact.email = new_att_input
+          if new_att_input == 'No'
+            return ""
+          else
+            contact.email = new_att_input
+          end
         elsif att_input == 'notes'
-          contact.notes = new_att_input
+          if new_att_input == 'No'
+            return ""
+          else
+            contact.notes = new_att_input
+          end
         end
       end
     end

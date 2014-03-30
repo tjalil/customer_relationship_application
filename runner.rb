@@ -28,7 +28,7 @@ class Runner
     email = gets.chomp
 
     puts "Enter any notes"
-    notes = gets.chomp
+    notes = gets.chomp.capitalize!
 
     @rolodex.add_contact(first_name, last_name, email, notes)
   end
@@ -42,30 +42,36 @@ class Runner
   def remove_contact
     puts "Enter userID to remove user"
     id = gets.chomp.to_i
-    @rolodex.remove_contact(id)
     
-    # puts ""
-    # puts "#{@rolodex.display_contact(id)}"
-    # puts "Are you sure you want to delete this user? Enter 'Y' or 'N'"
-    # confirmation = gets.chomp.upcase
-    # if confirmation == 'Y'
-    #   @rolodex.remove_contact(id)
-    # elsif confirmation == 'N'
-    #   run_program
-    # end
+    puts ""
+    puts "#{@rolodex.display_contact(id)}"
+    puts "Are you sure you want to delete this user? Enter 'Y' or 'N'"
+    
+    confirmation = gets.chomp.upcase
+    if confirmation == 'Y'
+      @rolodex.remove_contact(id)
+    elsif confirmation == 'N'
+      return ""
+    end
   end
 
   def edit_contact
     puts "Enter userID to access the user being edited"
     id = gets.chomp.to_i
 
-    puts "What attribute would you like to edit for #{id}?\n'firstname' for first name\n'lastname' for last name\n'email' for email\n'notes' for notes"
+    puts "What attribute would you like to edit for #{id}?\n'firstname' for First Name\n'lastname' for Last Name\n'email' for Email\n'notes' for Notes"
     att_input = gets.chomp.downcase
 
-    puts "What is the new value you would like to give this attribute?"
-    new_att_input = gets.chomp
+    puts "What is the new value you would like to give this attribute?\n Type 'no' to return to Main Menu"
+    new_att_input = gets.chomp.capitalize!
     @rolodex.edit_contact(id, att_input, new_att_input)
-    #@rolodex.display_contact(id)
+
+    if new_att_input == "No"
+      return ""
+    elsif
+      puts "Success! Here is the edited user information: "
+      @rolodex.display_contact(id)
+    end
   end
 
   def display_all_contacts
@@ -74,8 +80,9 @@ class Runner
   end
 
   def display_attribute
-    puts "Type the attribute you want to display\n'firstname' for first name\n'lastname' for last name\n'email' for email\n'notes' for notes"
+    puts "Type the attribute you want to display\n'firstname' for First Name\n'lastname' for Last Name\n'email' for Email\n'notes' for Notes"
     att_input = gets.chomp.downcase
+    puts "    -----    "
     @rolodex.display_attribute(att_input)
   end
 
