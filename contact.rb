@@ -1,5 +1,5 @@
 class Contact
-  attr_accessor :id, :first_name, :last_name, :email, :notes
+  attr_accessor :id, :first_name, :last_name, :email, :notes, :time_stamp
 
   @@counter = 0
 
@@ -8,7 +8,7 @@ class Contact
   end
 
   def to_s
-    "userID: #{id}\nFirst Name: #{first_name}\nLast Name: #{last_name}\nEmail: #{email}\nNotes: #{notes}"
+    "userID: #{id}\nFirst Name: #{first_name}\nLast Name: #{last_name}\nEmail: #{email}\nNotes: #{notes}\nUser Creation: #{time_stamp}"
   end
 
   def self.get_id

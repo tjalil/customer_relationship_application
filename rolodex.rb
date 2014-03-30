@@ -3,12 +3,13 @@ class Rolodex
     @contacts = []
   end
 
-  def add_contact(first_name, last_name, email, notes)
+  def add_contact(first_name, last_name, email, notes, time_stamp)
     contact = Contact.new
     contact.first_name = first_name
     contact.last_name = last_name
     contact.email = email
     contact.notes = notes
+    contact.time_stamp = Time.new.strftime("%m-%d-%Y %H:%M:%S")
 
     @contacts << contact
   end

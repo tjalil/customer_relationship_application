@@ -30,7 +30,9 @@ class Runner
     puts "Enter any notes"
     notes = gets.chomp.capitalize!
 
-    @rolodex.add_contact(first_name, last_name, email, notes)
+    time_stamp = ""
+
+    @rolodex.add_contact(first_name, last_name, email, notes, time_stamp)
   end
 
   def display_contact
@@ -46,7 +48,7 @@ class Runner
     puts ""
     puts "#{@rolodex.display_contact(id)}"
     puts "Are you sure you want to delete this user? Enter 'Y' or 'N'"
-    
+
     confirmation = gets.chomp.upcase
     if confirmation == 'Y'
       @rolodex.remove_contact(id)
