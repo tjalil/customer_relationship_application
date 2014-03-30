@@ -5,10 +5,11 @@ class Contact
 
   def initialize
     @id = Contact.get_id
+    @notes = []
   end
 
   def to_s
-    "userID: #{id}\nFirst Name: #{first_name}\nLast Name: #{last_name}\nEmail: #{email}\nNotes: #{notes}\nUser Creation: #{time_stamp}"
+    "userID: #{@id}\nFirst Name: #{@first_name}\nLast Name: #{@last_name}\nEmail: #{@email}\nNotes: \n#{@notes}\nUser Creation: #{time_stamp}"
   end
 
   def self.get_id

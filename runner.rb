@@ -1,5 +1,6 @@
 require './rolodex'
 require './contact'
+require 'colorize'
 
 class Runner
   def initialize
@@ -7,13 +8,14 @@ class Runner
   end
 
   def main_menu
-    puts "---------- TAHA'S CRM ----------"
+    puts "---------- TAHA'S CRM ----------".swap.blue
     puts "1. Add a contact"
     puts "2. Display a contact"
     puts "3. Remove a contact"
     puts "4. Edit a contact"
     puts "5. Display all contacts"
     puts "6. Display all contacts by First Name, Last Name, Email or Notes"
+    puts "7. Add notes for an existing contact"
     puts "0. Exit"
   end
 
@@ -88,6 +90,12 @@ class Runner
     @rolodex.display_attribute(att_input)
   end
 
+  def create_note
+    puts "Enter userID to create a new note"
+    id = gets.chomp.to_i
+    @rolodex.add_note(id)
+  end
+
   def run_program
     done = false
     while !done
@@ -108,6 +116,8 @@ class Runner
         display_all_contacts
       elsif input == 6
         display_attribute
+      elsif input == 7
+        create_note
       end
     end
   end

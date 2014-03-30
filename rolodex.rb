@@ -1,3 +1,5 @@
+require './notes'
+
 class Rolodex
   def initialize
     @contacts = []
@@ -39,6 +41,17 @@ class Rolodex
       end
     end
     @contacts.delete(remove)
+  end
+
+  def add_note(id)
+    @contacts.each do |contact|
+      if contact.id == id
+        puts "add new note"
+        new_note = gets.chomp
+        new_note_time = Time.new.strftime("%m-%d-%Y %H:%M:%S")
+        contact.notes << "\n#{new_note} created at #{new_note_time}"
+      end
+    end
   end
 
   def display_attribute(att_input)
