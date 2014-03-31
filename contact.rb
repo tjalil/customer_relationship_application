@@ -5,7 +5,7 @@ class Contact
 
   def initialize
     @id = Contact.get_id
-    @notes = []
+    @notes =[]
   end
 
   def to_s

@@ -76,5 +76,5 @@ DISPLAYING ALL CONTACTS
 -------------------------------------
 ADDING NOTES
 -------------------------------------
-- there should be dates attached to notes
++ there should be dates attached to notes
 + add more than one notes

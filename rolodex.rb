@@ -1,5 +1,3 @@
-require './notes'
-
 class Rolodex
   def initialize
     @contacts = []
@@ -10,7 +8,7 @@ class Rolodex
     contact.first_name = first_name
     contact.last_name = last_name
     contact.email = email
-    contact.notes = notes
+    contact.notes.push(notes)
     contact.time_stamp = Time.new.strftime("%m-%d-%Y %H:%M:%S")
 
     @contacts << contact
@@ -46,10 +44,10 @@ class Rolodex
   def add_note(id)
     @contacts.each do |contact|
       if contact.id == id
-        puts "add new note"
+        puts "Add new note"
         new_note = gets.chomp
         new_note_time = Time.new.strftime("%m-%d-%Y %H:%M:%S")
-        contact.notes << "\n#{new_note} created at #{new_note_time}"
+        contact.notes.push("#{new_note} created at #{new_note_time}")
       end
     end
   end
